@@ -1,0 +1,59 @@
+time iverilog -f ../input.vc -o simi ../bench/bench.v
+perl benchmarker "icarus Icarus Verilog version 12.0 (stable) ()" "./simi +CYCLES=%c"
+Finding baseline
+  Run1 ./simi +CYCLES=1
+    Runtime = 1 cycles
+    Final sum = 00000000
+    ../bench/bench.v:73: $finish called at 5000 (10ps)
+    0.00user 0.00system 0:00.01elapsed 30%CPU (0avgtext+0avgdata 9000maxresident)k
+    0inputs+0outputs (0major+1087minor)pagefaults 0swaps
+  Run2 ./simi +CYCLES=1
+    Runtime = 1 cycles
+    Final sum = 00000000
+    ../bench/bench.v:73: $finish called at 5000 (10ps)
+    0.00user 0.00system 0:00.01elapsed 10%CPU (0avgtext+0avgdata 8952maxresident)k
+    0inputs+0outputs (0major+1085minor)pagefaults 0swaps
+  Run3 ./simi +CYCLES=1
+    Runtime = 1 cycles
+    Final sum = 00000000
+    ../bench/bench.v:73: $finish called at 5000 (10ps)
+    0.00user 0.00system 0:00.01elapsed 90%CPU (0avgtext+0avgdata 8752maxresident)k
+    0inputs+0outputs (0major+1083minor)pagefaults 0swaps
+Experiment
+  Run4 ./simi +CYCLES=10001
+    Runtime = 10001 cycles
+    Final sum = 5795f0cc
+    ../bench/bench.v:73: $finish called at 10005000 (10ps)
+    0.25user 0.00system 0:00.27elapsed 97%CPU (0avgtext+0avgdata 8816maxresident)k
+    0inputs+0outputs (0major+1085minor)pagefaults 0swaps
+  Run5 ./simi +CYCLES=40001
+    Runtime = 40001 cycles
+    Final sum = e4dc16f3
+    ../bench/bench.v:73: $finish called at 40005000 (10ps)
+    1.02user 0.00system 0:01.04elapsed 97%CPU (0avgtext+0avgdata 8732maxresident)k
+    0inputs+0outputs (0major+1082minor)pagefaults 0swaps
+ *Experiment:  1.02 seconds, 39215 cycles/second
+  Run6 ./simi +CYCLES=1176452
+    Runtime = 1176452 cycles
+    Final sum = a0140e2f
+    ../bench/bench.v:73: $finish called at 1176456000 (10ps)
+    30.02user 0.00system 0:30.00elapsed 100%CPU (0avgtext+0avgdata 8728maxresident)k
+    0inputs+0outputs (0major+1083minor)pagefaults 0swaps
+ *Experiment:  30.02 seconds, 39188 cycles/second
+Experiment
+  Run7 ./simi +CYCLES=1176452
+    Runtime = 1176452 cycles
+    Final sum = a0140e2f
+    ../bench/bench.v:73: $finish called at 1176456000 (10ps)
+    30.20user 0.00system 0:30.21elapsed 99%CPU (0avgtext+0avgdata 8692maxresident)k
+    0inputs+0outputs (0major+1082minor)pagefaults 0swaps
+ *Experiment:  30.2 seconds, 38955 cycles/second
+Experiment
+  Run8 ./simi +CYCLES=1176452
+    Runtime = 1176452 cycles
+    Final sum = a0140e2f
+    ../bench/bench.v:73: $finish called at 1176456000 (10ps)
+    29.66user 0.00system 0:29.57elapsed 100%CPU (0avgtext+0avgdata 8852maxresident)k
+    0inputs+0outputs (0major+1087minor)pagefaults 0swaps
+ *Experiment:  29.66 seconds, 39664 cycles/second
+****Final: icarus Icarus Verilog version 12.0 (stable) ()    ./simi +CYCLES=%c    39664 cycles/second

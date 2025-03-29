@@ -1,0 +1,5 @@
++libext+.v 
+ -y ../bench
+ -y ../rtl
+ +incdir+../bench
+ +incdir+../rtl
